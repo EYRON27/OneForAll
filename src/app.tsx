@@ -4,6 +4,9 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/loginpage';
 import SignupPage from './pages/SignupPage';
 import DashboardPage from './pages/DashboardPage';
+import TaskPage from './pages/TaskPage';
+import PassPage from './pages/PassPage';
+import MoneyPage from './pages/MoneyPage';
 
 // Check if user is authenticated
 const isAuthenticated = () => {
@@ -27,6 +30,30 @@ function App() {
           element={
             <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/tasks" 
+          element={
+            <ProtectedRoute>
+              <TaskPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/pass" 
+          element={
+            <ProtectedRoute>
+              <PassPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/money" 
+          element={
+            <ProtectedRoute>
+              <MoneyPage />
             </ProtectedRoute>
           } 
         />
