@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import LoginPage from './pages/loginpage';
-import SignupPage from './pages/SignupPage';
 import DashboardPage from './pages/DashboardPage';
 import TaskPage from './pages/TaskPage';
 import PassPage from './pages/PassPage';
@@ -15,7 +13,7 @@ const isAuthenticated = () => {
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  return isAuthenticated() ? <>{children}</> : <Navigate to="/login" replace />;
+  return isAuthenticated() ? <>{children}</> : <Navigate to="/" replace />;
 };
 
 function App() {
@@ -23,8 +21,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
         <Route 
           path="/dashboard" 
           element={

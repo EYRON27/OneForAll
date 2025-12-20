@@ -5,7 +5,7 @@ const AppSidebar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isExpanded, setIsExpanded] = useState(false);
-  const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const leaveTimeoutRef = useRef<number | null>(null);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -33,7 +33,7 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside 
-      className={`${isExpanded ? 'w-64' : 'w-16'} bg-[#2b3544] transition-all duration-300 ease-in-out flex flex-col py-6 relative overflow-x-hidden h-screen sticky top-0`}
+      className={`${isExpanded ? 'w-64' : 'w-16'} bg-[#2b3544] transition-all duration-300 ease-in-out flex-col py-6 relative overflow-x-hidden h-screen sticky top-0 hidden md:flex`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

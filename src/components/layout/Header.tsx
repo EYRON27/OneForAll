@@ -1,13 +1,17 @@
 import React from 'react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onLoginClick?: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
   return (
-    <header className="absolute top-6 left-0 right-0 z-50">
-      <div className="relative">
+    <header className="absolute top-4 md:top-6 left-0 right-0 z-50">
+      <div className="relative px-4 md:px-0">
         {/* Logo flush left */}
-        <div className="absolute left-6 top-3 flex items-center">
+        <div className="absolute left-4 md:left-6 top-3 flex items-center">
           <div className="h-8 flex items-center">
-            <div className="flex items-center text-[18px] font-extrabold tracking-tight leading-none" style={{ fontFamily: 'Montserrat, system-ui, -apple-system, sans-serif' }}>
+            <div className="flex items-center text-[16px] md:text-[18px] font-extrabold tracking-tight leading-none" style={{ fontFamily: 'Montserrat, system-ui, -apple-system, sans-serif' }}>
               <span className="text-[#ff7a2d]">T</span>
               <span className="text-white -ml-0.5">P</span>
             </div>
@@ -15,8 +19,13 @@ const Header: React.FC = () => {
         </div>
 
         {/* Login flush right */}
-        <div className="absolute right-6 top-2 flex items-center">
-          <a href="/login" className="text-sm px-4 py-1 rounded-md bg-[#ffedd5] text-[#ff7a2d]">Login</a>
+        <div className="absolute right-4 md:right-6 top-2 flex items-center">
+          <button 
+            onClick={onLoginClick}
+            className="text-xs sm:text-sm px-3 sm:px-4 py-1 rounded-md bg-[#ffedd5] text-[#ff7a2d] hover:bg-[#ff7a2d] hover:text-white transition-colors"
+          >
+            Login
+          </button>
         </div>
 
         {/* Centered nav */}
